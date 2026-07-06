@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWP Calculator</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f0f8ff;
+            margin:0;
+            padding:0;
+        }
+
+        .container{
+            width:500px;
+            margin:50px auto;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            color:#4a90e2;
+            text-align:center;
+            margin-bottom:25px;
+        }
+
+        label{
+            display:block;
+            margin-bottom:5px;
+            font-weight:bold;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin-bottom:15px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            font-size:15px;
+            box-sizing:border-box;
+        }
+
+        button{
+            background:#4a90e2;
+            color:white;
+            border:none;
+            padding:12px 20px;
+            border-radius:5px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            background:#357abd;
+        }
+
+        hr{
+            margin:25px 0;
+        }
+
+        h3{
+            color:#333;
+            margin:10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>SWP Calculator</h2>
+
+    <form method="POST">
+
+        <label>Total Investment (₹)</label>
+        <input
+            type="number"
+            name="total_investment"
+            placeholder="Enter total investment"
+            required>
+
+        <label>Monthly Withdrawal (₹)</label>
+        <input
+            type="number"
+            step="0.01"
+            name="monthly_withdrawal"
+            placeholder="Enter monthly withdrawal amount"
+            required>
+
+        <label>Expected Annual Return (%)</label>
+        <input
+            type="number"
+            step="0.01"
+            name="annual_return"
+            placeholder="Enter expected annual return"
+            required>
+
+        <label>Withdrawal Period (Years)</label>
+        <input
+            type="number"
+            name="years"
+            placeholder="Enter withdrawal period"
+            required>
+
+        <button type="submit">Calculate SWP</button>
+
+    </form>
+
+    {% if remaining_balance is not none %}
+
+    <hr>
+
+    <h3>Total Investment : ₹ {{ invested_amount }}</h3>
+    <h3>Total Withdrawal : ₹ {{ total_withdrawal }}</h3>
+    <h3>Estimated Growth : ₹ {{ estimated_returns }}</h3>
+    <h3>Remaining Balance : ₹ {{ remaining_balance }}</h3>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Calculators</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body{
+            background:#f0f8ff;
+        }
+
+        /* ================= Navbar ================= */
+
+        .navbar{
+            background:#a0c4ff;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:15px 30px;
+            box-shadow:0 2px 8px rgba(0,0,0,.1);
+        }
+
+        .logo{
+            color:white;
+            font-size:24px;
+            font-weight:bold;
+        }
+
+        .search-container{
+            width:40%;
+        }
+
+        .search-box{
+            width:100%;
+            padding:10px 15px;
+            border:none;
+            border-radius:25px;
+            outline:none;
+            font-size:15px;
+        }
+
+        .profile-avatar{
+            width:40px;
+            height:40px;
+            border-radius:50%;
+            background:white;
+            color:#4a90e2;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-weight:bold;
+            cursor:pointer;
+        }
+
+        /* ================= Main Content ================= */
+
+        .main-content{
+            width:90%;
+            max-width:1100px;
+            margin:60px auto;
+            text-align:center;
+        }
+
+        .main-content h1{
+            color:#4a90e2;
+            margin-bottom:10px;
+        }
+
+        .main-content p{
+            color:#555;
+            margin-bottom:40px;
+        }
+
+        /* ================= Calculator Cards ================= */
+
+        .calculator-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+            gap:30px;
+        }
+
+        .card{
+            text-decoration:none;
+            background:white;
+            color:#333;
+            padding:30px 20px;
+            border-radius:15px;
+            box-shadow:0 5px 15px rgba(0,0,0,.1);
+            transition:.3s;
+        }
+
+        .card:hover{
+            background:#4a90e2;
+            color:white;
+            transform:translateY(-8px);
+        }
+
+        .card h2{
+            margin-bottom:15px;
+            font-size:22px;
+        }
+
+        .card p{
+            margin:0;
+            font-size:15px;
+        }
+
+        @media(max-width:768px){
+            .navbar{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            .search-container{
+                width:100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            WELCOME TO FINANCIAL CALCULATORS SITE
+        </div>
+
+        <div class="profile-avatar">
+            U
+        </div>
+
+    </header>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <h1>Financial Calculators</h1>
+
+        <p>Select a calculator below.</p>
+
+        <div class="calculator-grid">
+
+            <a href="{{ url_for('emi') }}" class="card">
+                <h2>💰 EMI Calculator</h2>
+                <p>Calculate your monthly loan EMI quickly.</p>
+            </a>
+
+            <a href="{{ url_for('fd') }}" class="card">
+                <h2>🏦 FD Calculator</h2>
+                <p>Estimate your Fixed Deposit maturity amount.</p>
+            </a>
+
+            <a href="{{ url_for('rd') }}" class="card">
+                <h2>📈 RD Calculator</h2>
+                <p>Calculate the maturity value of your RD.</p>
+            </a>
+
+            <a href="{{ url_for('sip') }}" class="card">
+                <h2>📊 SIP Calculator</h2>
+                <p>Estimate your SIP investment returns.</p>
+            </a>
+
+            <a href="{{ url_for('ppf') }}" class="card">
+                <h2>📊 PPF Calculator</h2>
+                <p>Estimate your PPF investment returns.</p>
+            </a>
+
+            <a href="{{ url_for('swp') }}" class="card">
+                <h2>📊 SWP Calculator</h2>
+                <p>Plan smarter withdrawals from investments.</p>
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

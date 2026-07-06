@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPF Calculator</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f0f8ff;
+            margin:0;
+            padding:0;
+        }
+
+        .container{
+            width:500px;
+            margin:50px auto;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            color:#4a90e2;
+            text-align:center;
+            margin-bottom:25px;
+        }
+
+        label{
+            display:block;
+            margin-bottom:5px;
+            font-weight:bold;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            margin-bottom:15px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            font-size:15px;
+            box-sizing:border-box;
+        }
+
+        input[readonly]{
+            background:#f5f5f5;
+        }
+
+        button{
+            background:#4a90e2;
+            color:white;
+            border:none;
+            padding:12px 20px;
+            border-radius:5px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            background:#357abd;
+        }
+
+        hr{
+            margin:25px 0;
+        }
+
+        h3{
+            color:#333;
+            margin:10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>PPF Calculator</h2>
+
+    <form method="POST">
+
+        <label>Yearly Investment</label>
+        <input type="number" name="Investment" placeholder="Enter yearly investment" required>
+
+        <label>Time Period (Years)</label>
+        <input type="number" name="Time" placeholder="Enter time period" required>
+
+        <label>Interest Rate (%)</label>
+        <input type="text" name="rate" value="7.1%" readonly>
+
+        <button type="submit">Calculate PPF</button>
+
+    </form>
+
+    {% if maturity_amount %}
+
+    <hr>
+
+    <h3>Total Investment : ₹ {{ total_investment }}</h3>
+    <h3>Interest Earned : ₹ {{ interest_earned }}</h3>
+    <h3>Maturity Amount : ₹ {{ maturity_amount }}</h3>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
